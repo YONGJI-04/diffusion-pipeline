@@ -11,16 +11,15 @@ def optimize_prompt(user_input: str) -> str:
         messages=[
             {
                 "role": "user",
-                "content": f"""You are an expert at writing prompts for Stable Diffusion XL image generation.
+                "content": f"""You are an expert at writing prompts for FLUX.1 image generation model.
 
-Convert the following user input into an optimized English prompt for SDXL.
+Convert the following user input into an optimized English prompt for FLUX.1.
 Rules:
 - Output ONLY the prompt, no explanation
 - Use descriptive English keywords
 - Add quality boosters: high quality, detailed, 8k, photorealistic (when appropriate)
-- Add style/lighting descriptors
-- Keep it under 77 tokens
-- If input is Korean, translate and expand it
+- Add style/lighting/composition descriptors
+- If input is Korean, translate and expand it creatively
 
 User input: {user_input}
 

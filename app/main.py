@@ -11,9 +11,13 @@ from image_generator import generate_image, save_image
 
 load_dotenv()
 
-app = FastAPI(title="Claude Flux Pipeline API")
+app = FastAPI(
+    title="Text to Image API",
+    description="한국어/영어 텍스트를 입력하면 Claude API가 프롬프트를 최적화하고 FLUX.1이 이미지를 생성합니다.",
+    version="1.0.0",
+)
 
-OUTPUT_DIR = Path("/workspace/jiyong/outputs")
+OUTPUT_DIR = Path("/workspace/jiyong/claude-flux-pipeline/outputs")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 
@@ -29,7 +33,7 @@ class GenerateResponse(BaseModel):
 
 @app.get("/")
 def root():
-    return {"status": "running", "message": "Diffusion Pipeline API"}
+    return {"status": "running", "message": "Text to Image API - Claude + FLUX.1"}
 
 
 @app.post("/generate", response_model=GenerateResponse)
